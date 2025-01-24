@@ -1,54 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>National Parks Map</title>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>National Parks Map</title>
+    <!-- CesiumJS CSS -->
+    <link
+      href="https://cesium.com/downloads/cesiumjs/releases/1.97/Build/Cesium/Widgets/widgets.css"
+      rel="stylesheet"
+    />
 
-<<<<<<< HEAD
-=======
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+  </head>
 
->>>>>>> 4c162e78a32829c4b34ac47b04acd4b97b7c5768
-  <!-- CesiumJS CSS -->
-  <link
-    href="https://cesium.com/downloads/cesiumjs/releases/1.97/Build/Cesium/Widgets/widgets.css"
-    rel="stylesheet"
-  />
+  <body>
+    <!-- The div that holds our Cesium globe -->
+    <div id="cesiumContainer" style="width: 100%; height: 100vh"></div>
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-</head>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const viewer = new Cesium.Viewer('cesiumContainer');
+      });
+    </script>
 
-<body>
+    <!-- CesiumJS Script -->
+    <script src="https://cesium.com/downloads/cesiumjs/releases/1.97/Build/Cesium/Cesium.js"></script>
 
-<<<<<<< HEAD
-  <!-- The div that holds our Cesium globe -->
-  <div id="cesiumContainer" style="width: 100%; height: 100vh;"></div>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const viewer = new Cesium.Viewer('cesiumContainer');
-    });
-  </script>
-
-=======
-
-  <!-- The div that holds our Cesium globe -->
-  <div id="cesiumContainer" style="width: 100%; height: 100vh;"></div>
-
->>>>>>> 4c162e78a32829c4b34ac47b04acd4b97b7c5768
-  <!-- CesiumJS Script -->
-  <script src="https://cesium.com/downloads/cesiumjs/releases/1.97/Build/Cesium/Cesium.js"></script>
-
-  <!-- Custom JavaScript -->
-  <script type="text/javascript" src="assets/js/logic.js"></script>
-</body>
-
+    <!-- Custom JavaScript -->
+    <script type="text/javascript" src="assets/js/logic.js"></script>
+  </body>
 </html>
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 4c162e78a32829c4b34ac47b04acd4b97b7c5768
