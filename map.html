@@ -22,6 +22,12 @@
   <!-- The div that holds our Cesium globe -->
   <div id="cesiumContainer" style="width: 100%; height: 100vh;"></div>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const viewer = new Cesium.Viewer('cesiumContainer');
+    });
+  </script>
+
   <!-- CesiumJS Script -->
   <script src="https://cesium.com/downloads/cesiumjs/releases/1.97/Build/Cesium/Cesium.js"></script>
 
