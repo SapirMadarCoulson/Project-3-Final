@@ -52,37 +52,37 @@ fetch(parksUrl)
         // Assign the proper color of the Park Tree icon based on the range of Entrance Fee Amount
         let parkIconUrl;
         if (feeAmount === 0) {
-          parkIconUrl = 'Images/tree-green.svg';
+          parkIconUrl = 'images/tree-green.svg';
         } else if (feeAmount > 0 && feeAmount <= 10) {
-          parkIconUrl = 'Images/tree-yellow.svg';
+          parkIconUrl = 'images/tree-yellow.svg';
         } else if (feeAmount > 10 && feeAmount <= 20) {
-          parkIconUrl = 'Images/tree-orange.svg';
+          parkIconUrl = 'images/tree-orange.svg';
         } else if (feeAmount > 20) {
-          parkIconUrl = 'Images/tree-red.svg';
+          parkIconUrl = 'images/tree-red.svg';
         }
 
         // Assign the proper color of the Monument icon based on the range of Entrance Fee Amount
         let monumentIconUrl;
         if (feeAmount === 0) {
-          monumentIconUrl = 'Images/monument-green.svg';
+          monumentIconUrl = 'images/monument-green.svg';
         } else if (feeAmount > 0 && feeAmount <= 10) {
-          monumentIconUrl = 'Images/monument-yellow.svg';
+          monumentIconUrl = 'images/monument-yellow.svg';
         } else if (feeAmount > 10 && feeAmount <= 20) {
-          monumentIconUrl = 'Images/monument-orange.svg';
+          monumentIconUrl = 'images/monument-orange.svg';
         } else if (feeAmount > 20) {
-          monumentIconUrl = 'Images/monument-red.svg';
+          monumentIconUrl = 'images/monument-red.svg';
         }
 
         // Assign the proper color of the Memorial icon based on the range of Entrance Fee Amount
         let memorialIconUrl;
         if (feeAmount === 0) {
-          memorialIconUrl = 'Images/memorial-green.svg';
+          memorialIconUrl = 'images/memorial-green.svg';
         } else if (feeAmount > 0 && feeAmount <= 10) {
-          memorialIconUrl = 'Images/memorial-yellow.svg';
+          memorialIconUrl = 'images/memorial-yellow.svg';
         } else if (feeAmount > 10 && feeAmount <= 20) {
-          memorialIconUrl = 'Images/memorial-orange.svg';
+          memorialIconUrl = 'images/memorial-orange.svg';
         } else if (feeAmount > 20) {
-          memorialIconUrl = 'Images/memorial-red.svg';
+          memorialIconUrl = 'images/memorial-red.svg';
         }
 
         // Test if the resulting location is a National Park and is also not a Monument
