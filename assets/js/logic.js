@@ -208,17 +208,17 @@ parkTypeLegendContainer.style.border = '1px solid #ccc';
 parkTypeLegendContainer.innerHTML = `
   <h4>Location Types<br>(Use checkboxes to toggle on/off the map)</h4>
   <div style="display: flex; align-items: center; margin-bottom: 8px;">
-    <img src="Images/tree-green.svg" style="width: 22px; height: 22px;" />
+    <img src="images/tree-green.svg" style="width: 22px; height: 22px;" />
     <label for="toggleParks" style="margin-right: 15px;">National Park</label>
     <input type="checkbox" id="toggleParks" checked style="margin-right: 8px;" />
   </div>
   <div style="display: flex; align-items: center; margin-bottom: 8px;">
-    <img src="Images/monument-green.svg" style="width: 22px; height: 22px;" />
+    <img src="images/monument-green.svg" style="width: 22px; height: 22px;" />
     <label for="toggleMonuments" style="margin-right: 15px;">National Monument</label>
     <input type="checkbox" id="toggleMonuments" checked style="margin-right: 8px;" />
   </div>
   <div style="display: flex; align-items: center;">
-    <img src="Images/memorial-green.svg" style="width: 22px; height: 22px;" />
+    <img src="images/memorial-green.svg" style="width: 22px; height: 22px;" />
     <label for="toggleMemorials" style="margin-right: 15px;">National Memorial</label>
     <input type="checkbox" id="toggleMemorials" checked style="margin-right: 8px;" />
   </div>
