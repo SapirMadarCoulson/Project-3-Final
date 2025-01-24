@@ -58,7 +58,7 @@ fetch(parksUrl)
         } else if (feeAmount > 10 && feeAmount <= 20) {
           parkIconUrl = 'Images/tree-orange.svg';
         } else if (feeAmount > 20) {
-          parkIconUrl = 'Images/tree-red.svg';
+          parkIconUrl = 'assets/Images/tree-red.svg';
         }
 
         // Assign the proper color of the Monument icon based on the range of Entrance Fee Amount
