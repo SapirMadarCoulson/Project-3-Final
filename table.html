@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Park Data</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f4f4f4;
+    }
+    .array-list {
+      margin: 0;
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Location Data</h1>
+  <div id="loading" style="font-size: 16px;">Loading data...</div>
+  <table id="parkTable" style="display: none;">
+    <thead>
+      <tr>
+        <th>Attribute</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    const apiKey = 'Z4ZXb0nUnTMOq6cljxbN1cFD0mk6kLaQBzkqehf3'; 
+    const urlParams = new URLSearchParams(window.location.search);
+    const parkCode = urlParams.get('parkCode');
+  
+    // Create a list of values to exclude from the API fetch because we don't want them to show
+    const excludedAttributes = [
+      'id', 'images', 'states', 'latLong', 'parkCode', 'latitude', 'longitude', 'name', 'directionsUrl', 'multimedia', 'relevanceScore'
+    ]; 
+
+    // Use the parkCode from the selected icon to fetch specific API data to display in the new tab
+    if (parkCode) {
+      fetch(`https://developer.nps.gov/api/v1/parks?parkCode=${parkCode}&api_key=${apiKey}`)
+        .then(response => response.json())
+        .then(data => {
+          const table = document.getElementById('parkTable');
+          const loadingDiv = document.getElementById('loading');
+
+          if (data.data && data.data.length > 0) {
+            const park = data.data[0];
+            const tbody = table.querySelector('tbody');
+
+            // Add data rows
+            Object.entries(park).forEach(([key, value]) => {
+              // Skip excluded attributes
+              if (excludedAttributes.includes(key)) return;
+
+              const row = document.createElement('tr');
+              const keyCell = document.createElement('td');
+              const valueCell = document.createElement('td');
+
+              keyCell.textContent = key;
+
+              // This code got complex because the data needed to be formatted properly to be displayed well
+              if (key === 'addresses' && Array.isArray(value)) {
+                const list = document.createElement('ul');
+                value.forEach(address => {
+                  const listItem = document.createElement('li');
+                  listItem.textContent = `${address.line1}, ${address.city}, ${address.stateCode} ${address.postalCode}`;
+                  list.appendChild(listItem);
+                });
+                valueCell.appendChild(list);
+              } else if (key === 'contacts' && typeof value === 'object') {
+                const contactList = document.createElement('ul');
+
+                if (value.phoneNumbers) {
+                  value.phoneNumbers.forEach(phone => {
+                    const phoneItem = document.createElement('li');
+                    phoneItem.textContent = `Phone: ${phone.phoneNumber} (${phone.type})`;
+                    contactList.appendChild(phoneItem);
+                  });
+                }
+
+                if (value.emailAddresses) {
+                  value.emailAddresses.forEach(email => {
+                    const emailItem = document.createElement('li');
+                    emailItem.textContent = `Email: ${email.emailAddress} (${email.description})`;
+                    contactList.appendChild(emailItem);
+                  });
+                }
+
+                valueCell.appendChild(contactList);
+              } else if (Array.isArray(value)) {
+                const list = document.createElement('ul');
+                value.forEach(item => {
+                  const listItem = document.createElement('li');
+                  listItem.textContent = item.name || item.title || item.id || JSON.stringify(item); 
+                  list.appendChild(listItem);
+                });
+                valueCell.appendChild(list);
+              } else if (typeof value === 'object') {
+                valueCell.textContent = JSON.stringify(value, null, 2); // Format objects so they display properly
+              } else {
+                valueCell.textContent = value;
+              }
+
+              row.appendChild(keyCell);
+              row.appendChild(valueCell);
+              tbody.appendChild(row);
+            });
+
+            loadingDiv.style.display = 'none';
+            table.style.display = 'table';
+          } else {
+            loadingDiv.textContent = 'No data found for this park.';
+          }
+        })
+        .catch(error => {
+          console.error('Error fetching park data:', error);
+          document.getElementById('loading').textContent = 'Error loading data.';
+        });
+    } else {
+      document.getElementById('loading').textContent = 'Invalid park code.';
+    }
+  </script>
+</body>
+</html>

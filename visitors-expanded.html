@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Park Visitor Visualizations</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <div id="charts">
+      <h1>National Park Visitor Data Visualizations</h1>
+      <h3>
+        Plots representing All Parks Yearly Recreation Visitor Numbers, <br />
+        Top 10 Parks by Total Recreation Visitors, Total Camping Preferences for
+        All <br />
+        Parks, Camping Preference for Top 10 Parks based in Visitor count,<br />
+        and Recreation versus Non-Recreation for the Top 10 Parks<br />
+      </h3>
+      <div id="time-series" class="plot"></div>
+      <div id="top-parks" class="plot"></div>
+      <div id="camping-preferences" class="plot"></div>
+      <div id="camping-bar" class="plot"></div>
+      <div id="yearly-changes" class="plot"></div>
+      <div id="combined-metrics" class="plot"></div>
+      <div id="recreation-vs-nonrecreation" class="plot"></div>
+      <div id="outliers" class="plot"></div>
+    </div>
+    <script src="assets/js/visitors-expanded.js"></script>
+  </body>
+</html>
